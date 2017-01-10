@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinguoren.coolpen.cloud.web.dao.product.ProductCategoryMapper">
+    <resultMap id="BaseResultMap" type="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="p_code" jdbcType="VARCHAR" property="pCode"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, code, name, p_code
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from product_category
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from product_category
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+        insert into product_category (code, name,
+        p_code)
+        values ( #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{pCode,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+        insert into product_category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="pCode != null">
+                p_code,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="pCode != null">
+                #{pCode,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+        update product_category
+        <set>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="pCode != null">
+                p_code = #{pCode,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+        update product_category
+        set code = #{code,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
+        p_code = #{pCode,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from product_category
+    </select>
+</mapper>

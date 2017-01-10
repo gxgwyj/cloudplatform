@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinguoren.coolpen.cloud.web.dao.product.ProductMainMapper">
+    <resultMap id="BaseResultMap" type="com.xinguoren.coolpen.cloud.web.model.product.ProductMain">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="p_name" jdbcType="VARCHAR" property="pName"/>
+        <result column="p_price" jdbcType="DECIMAL" property="pPrice"/>
+        <result column="p_code" jdbcType="VARCHAR" property="pCode"/>
+        <result column="p_brand" jdbcType="BIGINT" property="pBrand"/>
+        <result column="p_category" jdbcType="BIGINT" property="pCategory"/>
+        <result column="p_comment" jdbcType="VARCHAR" property="pComment"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, p_name, p_price, p_code, p_brand, p_category, p_comment
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from product_main
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from product_main
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductMain">
+        insert into product_main ( p_name, p_price,
+        p_code, p_brand, p_category,
+        p_comment)
+        values ( #{pName,jdbcType=VARCHAR}, #{pPrice,jdbcType=DECIMAL},
+        #{pCode,jdbcType=VARCHAR}, #{pBrand,jdbcType=BIGINT}, #{pCategory,jdbcType=BIGINT},
+        #{pComment,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductMain">
+        insert into product_main
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="pName != null">
+                p_name,
+            </if>
+            <if test="pPrice != null">
+                p_price,
+            </if>
+            <if test="pCode != null">
+                p_code,
+            </if>
+            <if test="pBrand != null">
+                p_brand,
+            </if>
+            <if test="pCategory != null">
+                p_category,
+            </if>
+            <if test="pComment != null">
+                p_comment,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="pName != null">
+                #{pName,jdbcType=VARCHAR},
+            </if>
+            <if test="pPrice != null">
+                #{pPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="pCode != null">
+                #{pCode,jdbcType=VARCHAR},
+            </if>
+            <if test="pBrand != null">
+                #{pBrand,jdbcType=BIGINT},
+            </if>
+            <if test="pCategory != null">
+                #{pCategory,jdbcType=BIGINT},
+            </if>
+            <if test="pComment != null">
+                #{pComment,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductMain">
+        update product_main
+        <set>
+            <if test="pName != null">
+                p_name = #{pName,jdbcType=VARCHAR},
+            </if>
+            <if test="pPrice != null">
+                p_price = #{pPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="pCode != null">
+                p_code = #{pCode,jdbcType=VARCHAR},
+            </if>
+            <if test="pBrand != null">
+                p_brand = #{pBrand,jdbcType=BIGINT},
+            </if>
+            <if test="pCategory != null">
+                p_category = #{pCategory,jdbcType=BIGINT},
+            </if>
+            <if test="pComment != null">
+                p_comment = #{pComment,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductMain">
+        update product_main
+        set p_name = #{pName,jdbcType=VARCHAR},
+        p_price = #{pPrice,jdbcType=DECIMAL},
+        p_code = #{pCode,jdbcType=VARCHAR},
+        p_brand = #{pBrand,jdbcType=BIGINT},
+        p_category = #{pCategory,jdbcType=BIGINT},
+        p_comment = #{pComment,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from product_main
+    </select>
+</mapper>

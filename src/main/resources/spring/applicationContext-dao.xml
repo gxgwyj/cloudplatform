@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/tx
+ 		                   http://www.springframework.org/schema/tx/spring-tx.xsd
+ 		                   http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--数据库连接参数配置-->
+	<context:property-placeholder location="classpath:conf/jdbc.properties"/>
+
+
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+	<!--spring管理事务-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!--可通过注解控制事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+	<!--配置MyBatis数据源-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<!--mybatis全局配置文件，必须加，否则分页拦截不起作用-->
+		<property name="configLocation" value="classpath:conf/mybatis-config.xml"/>
+		<!--加载所有的mapper文件 -->
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:com/xinguoren/coolpen/cloud/web/dao/**/*.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 自动扫描mapper接口,交给spring容器管理 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!--扫描mapper对应接口路径-->
+		<property name="basePackage" value="com.**.dao"/>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+	</bean>
+
+</beans>

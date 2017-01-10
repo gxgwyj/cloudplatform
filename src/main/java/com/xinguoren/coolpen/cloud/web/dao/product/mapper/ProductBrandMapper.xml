@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinguoren.coolpen.cloud.web.dao.product.ProductBrandMapper">
+    <resultMap id="BaseResultMap" type="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="b_name" jdbcType="VARCHAR" property="bName"/>
+        <result column="b_place" jdbcType="CHAR" property="bPlace"/>
+        <result column="b_code" jdbcType="VARCHAR" property="bCode"/>
+        <result column="create_date" jdbcType="DATE" property="createDate"/>
+        <result column="update_date" jdbcType="DATE" property="updateDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, b_name, b_place, b_code, create_date, update_date
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from product_brand
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from product_brand
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+        insert into product_brand (b_name, b_place,
+        b_code, create_date, update_date
+        )
+        values (#{bName,jdbcType=VARCHAR}, #{bPlace,jdbcType=CHAR},
+        #{bCode,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, #{updateDate,jdbcType=DATE}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+        insert into product_brand
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="bName != null">
+                b_name,
+            </if>
+            <if test="bPlace != null">
+                b_place,
+            </if>
+            <if test="bCode != null">
+                b_code,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="bName != null">
+                #{bName,jdbcType=VARCHAR},
+            </if>
+            <if test="bPlace != null">
+                #{bPlace,jdbcType=CHAR},
+            </if>
+            <if test="bCode != null">
+                #{bCode,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=DATE},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=DATE},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+        update product_brand
+        <set>
+            <if test="bName != null">
+                b_name = #{bName,jdbcType=VARCHAR},
+            </if>
+            <if test="bPlace != null">
+                b_place = #{bPlace,jdbcType=CHAR},
+            </if>
+            <if test="bCode != null">
+                b_code = #{bCode,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=DATE},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=DATE},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+        update product_brand
+        set b_name = #{bName,jdbcType=VARCHAR},
+        b_place = #{bPlace,jdbcType=CHAR},
+        b_code = #{bCode,jdbcType=VARCHAR},
+        create_date = #{createDate,jdbcType=DATE},
+        update_date = #{updateDate,jdbcType=DATE}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from product_brand
+    </select>
+
+</mapper>

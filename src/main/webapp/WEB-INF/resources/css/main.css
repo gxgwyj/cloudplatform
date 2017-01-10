@@ -1,0 +1,70 @@
+#Container {
+    width: 60%;
+    margin: 0 auto; /*设置整个容器在浏览器中水平居中*/
+    /*background:#CF3;*/
+}
+
+#Header {
+    height: 80px;
+    /*background:#093;*/
+    background: #0FF;
+    border: 1px solid;
+}
+
+#logo {
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+#Content {
+    height: 600px;
+    /*此处对容器设置了高度，一般不建议对容器设置高度，一般使用overflow:auto;属性设置容器根据内容自适应高度，如果不指定高度或不设置自适应高度，容器将默认为1个字符高度，容器下方的布局元素（footer）设置margin-top:属性将无效*/
+    margin-top: 20px; /*此处讲解margin的用法，设置content与上面header元素之间的距离*/
+    background: #0FF;
+    border: 1px solid;
+
+}
+
+#Content-Left {
+    height: 85%;
+    width: 200px;
+    margin: 20px; /*设置元素跟其他元素的距离为20像素*/
+    float: left; /*设置浮动，实现多列效果，div+Css布局中很重要的*/
+    /*background:#90C;*/
+    border: 1px solid;
+}
+
+#Content-Main {
+    height: 85%;
+    width: 830px;
+    margin: 20px; /*设置元素跟其他元素的距离为20像素*/
+    float: left; /*设置浮动，实现多列效果，div+Css布局中很重要的*/
+    /*background:#90C;*/
+    border: 1px solid;
+    padding: 5px;
+}
+
+/*注：Content-Left和Content-Main元素是Content元素的子元素，两个元素使用了float:left;设置成两列，这个两个元素的宽度和这个两个元素设置的padding、margin的和一定不能大于父层Content元素的宽度，否则设置列将失败*/
+#Footer {
+    height: 40px;
+    background: #90C;
+    margin-top: 20px;
+}
+
+.Clear {
+    clear: both;
+}
+
+.item li {
+    border: 1px solid;
+    cursor: pointer;
+    margin-top: 5px;
+    list-style-type: none;
+    text-align: center;
+    width: 100px;
+}
+
+.item a {
+    text-decoration: none;
+}
