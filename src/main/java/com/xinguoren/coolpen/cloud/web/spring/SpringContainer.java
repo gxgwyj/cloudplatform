@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SpringContainer {
     public static void main(String[] args) {
-        ApplicationContext context =new ClassPathXmlApplicationContext("spring/appConfig/service.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring/appConfig/service.xml");
         AppService appService1 = context.getBean(AppService.class);
         AppService appService2 = context.getBean(AppService.class);
 
