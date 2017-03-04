@@ -9,10 +9,12 @@
 
        <dubbo:application name="cloudplatform"  />
        <!--配置服务注册中心-->
-       <dubbo:registry protocol="zookeeper" address="192.168.1.176:2181" />
-       <!--<dubbo:registry address="zookeeper://192.168.1.176:2181" />-->
+       <!--<dubbo:registry protocol="zookeeper" address="192.168.1.176:2181" />-->
+       <!--<dubbo:registry address="zookeeper://192.168.204.128:2181" />-->
+       <dubbo:registry  protocol="zookeeper"  address="192.168.204.128:2181,192.168.204.128:2182,192.168.204.128:2183"  />
 
-       <dubbo:protocol name="dubbo" port="20880" />
+
+    <dubbo:protocol name="dubbo" port="20880" />
 
        <!-- 声明需要暴露的服务接口 -->
        <dubbo:service interface="com.xinguoren.coolpen.cloud.web.service.api.BlogService" ref="blogService" />
