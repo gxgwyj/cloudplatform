@@ -6,7 +6,11 @@ import java.io.Serializable;
 /**
  * Created by Administrator on 2016/9/9.
  */
+<<<<<<< HEAD
 public class Blog implements Serializable {
+=======
+public class Blog implements Serializable{
+>>>>>>> 760e862cf43e5c8cf75a34d9820a191d69b54c62
     private String title;
     private String author;
     private String content;
