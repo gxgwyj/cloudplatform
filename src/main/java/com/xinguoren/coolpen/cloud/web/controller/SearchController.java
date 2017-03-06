@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SearchController {
 
+    public SearchController(){
+        System.out.println("测试单例模式");
+    }
+
     @RequestMapping(value = "/")
     public String index() {
         return "index";
