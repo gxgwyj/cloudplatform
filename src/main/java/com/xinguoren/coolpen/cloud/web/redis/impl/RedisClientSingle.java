@@ -101,4 +101,15 @@ public class RedisClientSingle implements RedisClient {
             e.printStackTrace();
         }
     }
+
+    public Long setnx(String key, String value) {
+        try {
+            Jedis jedis = jedisPool.getResource();
+            jedis.close();
+            return jedis.setnx(key,value);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1L;
+    }
 }

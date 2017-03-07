@@ -69,5 +69,7 @@ public interface RedisClient {
      */
     void expire(String key, String value, int second);
 
+    Long setnx(String key,String value);
+
 
 }

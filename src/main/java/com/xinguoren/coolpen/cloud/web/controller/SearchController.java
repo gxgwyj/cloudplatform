@@ -1,6 +1,8 @@
 package com.xinguoren.coolpen.cloud.web.controller;
 
 import com.xinguoren.coolpen.cloud.web.model.Blog;
+import com.xinguoren.coolpen.cloud.web.service.SearchService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class SearchController {
+    @Autowired
+    SearchService searchService;
 
     public SearchController(){
         System.out.println("测试单例模式");
@@ -27,5 +31,12 @@ public class SearchController {
     public Object test(@RequestBody Blog blog) {
         return blog;
     }
+
+    @RequestMapping(value = "/lock")
+    @ResponseBody
+    public Long lock() {
+        return searchService.getLock();
+    }
+
 
 }
