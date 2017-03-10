@@ -14,6 +14,7 @@
     <input type="text"/>
     <input type="button" value="搜索"/>
     <input type="button" value="获取锁" onclick="getLock()"/>
+    <input type="button" value="规定时间内的访问限制" onclick="getIncr()"/>
 </div>
 </body>
 <script>
@@ -27,5 +28,21 @@
             },
         });
     }
+    function getIncr(){
+        $.ajax({
+            type: 'POST',
+            url: "/incr",
+            datatype:"json",
+            success: function(msg){
+                alert(msg);
+            },
+        });
+    }
+    var n =1;
+    function show(){
+        alert(n);
+        var n = 3;
+    }
+    show();
 </script>
 </html>

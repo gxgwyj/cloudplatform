@@ -2,6 +2,7 @@ package com.xinguoren.coolpen.cloud.web.controller;
 
 import com.xinguoren.coolpen.cloud.web.model.Blog;
 import com.xinguoren.coolpen.cloud.web.service.SearchService;
+import com.xinguoren.coolpen.cloud.web.spring.ThreadLocalTest2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +36,14 @@ public class SearchController {
     @RequestMapping(value = "/lock")
     @ResponseBody
     public Long lock() {
+        ThreadLocalTest2.TEST_THREAD_NAME_LOCAL.set("abc");
         return searchService.getLock();
+    }
+
+    @RequestMapping(value = "/incr")
+    @ResponseBody
+    public String incr() {
+        return  searchService.getCanAccess()?"访问成功":"5秒钟只能访问3次";
     }
 
 
