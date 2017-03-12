@@ -6,6 +6,7 @@ import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
 import com.xinguoren.coolpen.cloud.web.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,11 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/product")
 public class ProductController {
+
+    public ProductController() {
+        System.out.println("初始化");
+    }
+
     @Autowired
     ProductService productService;
 
@@ -137,6 +143,48 @@ public class ProductController {
     public ModelAndView addProduct(@ModelAttribute("ProductMain") ProductMain productMain) {
         productService.saveProduct(productMain);
         return new ModelAndView("redirect:list");
+    }
+
+    /**
+     * 商品添加
+     *
+     * @return
+     */
+    @RequestMapping(value = "tx", method = RequestMethod.GET)
+    public ModelAndView tx() {
+        return new ModelAndView("product/tx");
+    }
+
+
+    /**
+     * 事务测试0
+     *
+     * @return
+     */
+    @RequestMapping(value = "tx/add", method = RequestMethod.POST)
+    public ModelAndView txAdd(HttpServletRequest request) {
+        String t_code = request.getParameter("t_code");
+        String t_name = request.getParameter("t_name");
+
+
+        String p_code = request.getParameter("p_code");
+        String p_name = request.getParameter("p_name");
+        String place = request.getParameter("place");
+
+
+        ProductBrand productBrand = new ProductBrand();
+//        productBrand.setbCode(p_code);
+        productBrand.setbName(p_name);
+        productBrand.setbPlace(place);
+
+        ProductCategory productCategory = new ProductCategory();
+        productCategory.setCode(t_code);
+        productCategory.setName(t_name);
+        productCategory.setpCode("000");
+
+        productService.txAdd(productCategory,productBrand);
+
+        return new ModelAndView("redirect:/product/type/list");
     }
 
 }

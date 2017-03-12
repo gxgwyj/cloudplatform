@@ -11,5 +11,6 @@
         <li><a href="/product/type/list">类别维护</a></li>
         <li><a href="/product/brand/list">品牌维护</a></li>
         <li><a href="/product/list">商品维护</a></li>
+        <li><a href="/product/tx">事务测试</a></li>
     </ul>
 </div>

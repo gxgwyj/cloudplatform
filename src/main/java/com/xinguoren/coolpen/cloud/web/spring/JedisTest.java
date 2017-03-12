@@ -13,13 +13,26 @@ public class JedisTest {
 
     @Test
     public void jedisSingleTest(){
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/applicationContext-redis.xml");
-        JedisPool pool = ctx.getBean(JedisPool.class);
-        Jedis jedis = pool.getResource();
-        String result = jedis.set("id","10086");
-        System.out.println(result);
-        jedis.close();
-        pool.close();
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/applicationContext-redis.xml");
+//        JedisPool pool = ctx.getBean(JedisPool.class);
+//        Jedis jedis = pool.getResource();
+//        String result = jedis.set("id","10086");
+//        System.out.println(result);
+//        jedis.close();
+//        pool.close();
+
+        Integer  a = 127;
+        Integer  b = 127;
+
+
+        Integer  c = new Integer(127);
+        Integer  d = new Integer(127);
+
+
+
+
+        System.out.println(a == b);
+        System.out.println(c == d);
 
     }
 }

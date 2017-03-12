@@ -37,7 +37,7 @@
 
 #Content-Main {
     height: 85%;
-    width: 830px;
+    width: 500px;
     margin: 20px; /*设置元素跟其他元素的距离为20像素*/
     float: left; /*设置浮动，实现多列效果，div+Css布局中很重要的*/
     /*background:#90C;*/

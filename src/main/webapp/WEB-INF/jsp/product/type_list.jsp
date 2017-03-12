@@ -10,7 +10,6 @@
     <title>商品类别列表</title>
     <link type="text/css" rel="stylesheet" href="<%=basePath%>css/main.css"/>
 </head>
-<style type="text/css"></style>
 <body>
 <div id="Container">
     <jsp:include page="header.jsp"></jsp:include>
