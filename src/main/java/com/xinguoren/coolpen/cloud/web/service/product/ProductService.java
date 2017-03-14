@@ -8,6 +8,8 @@ import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -30,6 +32,7 @@ public class ProductService {
      *
      * @param productCategory
      */
+    @Transactional
     public void saveCategory(ProductCategory productCategory) {
         productCategoryMapper.insert(productCategory);
     }
@@ -49,6 +52,7 @@ public class ProductService {
      *
      * @param productBrand
      */
+    @Transactional
     public void saveBrand(ProductBrand productBrand) {
         Date date = new Date();
         productBrand.setCreateDate(date);
@@ -83,6 +87,17 @@ public class ProductService {
      */
     public List<ProductMain> findAllProduct() {
         return productMainMapper.selectAll();
+    }
+
+    /**
+     * 事务测试
+     *
+     * @return
+     */
+    @Transactional
+    public void txAdd(ProductCategory productCategory,ProductBrand productBrand) {
+        this.saveCategory(productCategory);
+        this.saveBrand(productBrand);
     }
 
 }
