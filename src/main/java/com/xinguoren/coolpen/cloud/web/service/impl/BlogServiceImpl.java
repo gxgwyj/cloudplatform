@@ -1,9 +1,9 @@
-package com.xinguoren.coolpen.cloud.web.service.api.impl;
+package com.xinguoren.coolpen.cloud.web.service.impl;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.xinguoren.coolpen.cloud.web.model.Blog;
-import com.xinguoren.coolpen.cloud.web.service.api.BlogService;
+import com.xinguoren.coolpen.cloud.web.api.BlogService;
+import com.xinguoren.coolpen.cloud.web.api.model.Blog;
 
 import java.util.ArrayList;
 import java.util.List;

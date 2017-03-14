@@ -1,4 +1,4 @@
-package com.xinguoren.coolpen.cloud.web.service.product;
+package com.xinguoren.coolpen.cloud.web.service;
 
 import com.xinguoren.coolpen.cloud.web.dao.product.ProductBrandMapper;
 import com.xinguoren.coolpen.cloud.web.dao.product.ProductCategoryMapper;
@@ -8,7 +8,6 @@ import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;

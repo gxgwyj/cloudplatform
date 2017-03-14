@@ -1,6 +1,6 @@
 package com.xinguoren.coolpen.cloud.web.controller;
 
-import com.xinguoren.coolpen.cloud.web.model.Blog;
+import com.xinguoren.coolpen.cloud.web.api.model.Blog;
 import com.xinguoren.coolpen.cloud.web.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

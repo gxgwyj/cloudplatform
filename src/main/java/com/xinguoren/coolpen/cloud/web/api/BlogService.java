@@ -1,6 +1,6 @@
-package com.xinguoren.coolpen.cloud.web.service.api;
+package com.xinguoren.coolpen.cloud.web.api;
 
-import com.xinguoren.coolpen.cloud.web.model.Blog;
+import com.xinguoren.coolpen.cloud.web.api.model.Blog;
 
 import java.util.List;
 

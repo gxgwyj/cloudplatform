@@ -1,4 +1,4 @@
-package com.xinguoren.coolpen.cloud.web.model;
+package com.xinguoren.coolpen.cloud.web.api.model;
 
 
 import java.io.Serializable;

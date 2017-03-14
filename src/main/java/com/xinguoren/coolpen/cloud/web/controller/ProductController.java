@@ -1,12 +1,11 @@
-package com.xinguoren.coolpen.cloud.web.controller.product;
+package com.xinguoren.coolpen.cloud.web.controller;
 
 
 import com.xinguoren.coolpen.cloud.web.model.product.ProductBrand;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
-import com.xinguoren.coolpen.cloud.web.service.product.ProductService;
+import com.xinguoren.coolpen.cloud.web.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

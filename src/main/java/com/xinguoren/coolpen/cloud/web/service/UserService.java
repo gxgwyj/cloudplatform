@@ -1,4 +1,4 @@
-package com.xinguoren.coolpen.cloud.web.service.user;
+package com.xinguoren.coolpen.cloud.web.service;
 
 /**
  * Created by Administrator on 2017/3/14.

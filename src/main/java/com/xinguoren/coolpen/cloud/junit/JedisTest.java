@@ -1,9 +1,9 @@
 package com.xinguoren.coolpen.cloud.junit;
 
-import com.xinguoren.coolpen.cloud.web.model.Blog;
+import com.xinguoren.coolpen.cloud.web.api.BlogService;
+import com.xinguoren.coolpen.cloud.web.api.model.Blog;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
-import com.xinguoren.coolpen.cloud.web.service.api.BlogService;
-import com.xinguoren.coolpen.cloud.web.service.product.ProductService;
+import com.xinguoren.coolpen.cloud.web.service.ProductService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import redis.clients.jedis.Jedis;
