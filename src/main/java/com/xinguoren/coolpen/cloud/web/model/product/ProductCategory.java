@@ -40,4 +40,14 @@ public class ProductCategory {
     public void setpCode(String pCode) {
         this.pCode = pCode == null ? null : pCode.trim();
     }
+
+    @Override
+    public String toString() {
+        return "ProductCategory{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", pCode='" + pCode + '\'' +
+                '}';
+    }
 }

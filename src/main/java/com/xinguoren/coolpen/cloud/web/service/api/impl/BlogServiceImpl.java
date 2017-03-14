@@ -1,6 +1,7 @@
 package com.xinguoren.coolpen.cloud.web.service.api.impl;
 
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.xinguoren.coolpen.cloud.web.model.Blog;
 import com.xinguoren.coolpen.cloud.web.service.api.BlogService;
 
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/12/24.
  */
+@Service
 public class BlogServiceImpl implements BlogService {
     public List<Blog> getAllBlogs() {
         System.out.println("服务被调用了.........");

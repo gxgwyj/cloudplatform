@@ -20,6 +20,12 @@ public class Blog implements Serializable {
     public Blog() {
     }
 
+    @Override
+    public String toString() {
+        return "Blog [title=" + title + ", author=" + author + ", content="
+                + content + "]";
+    }
+
 
     public String getTitle() {
         return title;
