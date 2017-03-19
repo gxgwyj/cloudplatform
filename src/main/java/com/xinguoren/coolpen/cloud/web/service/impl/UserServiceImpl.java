@@ -1,7 +1,7 @@
 package com.xinguoren.coolpen.cloud.web.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.xinguoren.coolpen.cloud.web.service.UserService;
+import com.xinguoren.coolpen.cloud.web.api.UserService;
 
 /**
  * Created by Administrator on 2017/3/14.

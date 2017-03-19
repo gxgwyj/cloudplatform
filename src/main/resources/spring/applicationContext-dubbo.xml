@@ -6,14 +6,15 @@
        <dubbo:application name="cloudplatform-service"  />
 
        <!--配置服务注册中心-->
-       <dubbo:registry protocol="zookeeper" address="192.168.1.176:2181" />
-       <!--<dubbo:registry address="zookeeper://192.168.204.128:2181" />-->
-       <!--<dubbo:registry  protocol="zookeeper"  address="192.168.204.128:2181,192.168.204.128:2182,192.168.204.128:2183"  />-->
+       <!--<dubbo:registry protocol="zookeeper" address="192.168.1.176:2181" />-->
+       <!--<dubbo:registry address="zookeeper://192.168.204.131:2181" />-->
+       <dubbo:registry  protocol="zookeeper"  address="192.168.204.131:2181,192.168.204.131:2182,192.168.204.131:2183"  />
 
        <!-- 用dubbo协议在20880端口暴露服务 -->
        <dubbo:protocol name="dubbo" port="20880" />
+       <!--<dubbo:protocol name="dubbo" port="20881" />-->
 
        <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
-       <dubbo:annotation package="com.xinguoren.coolpen.cloud.web.service.api" />
+       <dubbo:annotation package="com.xinguoren.coolpen.cloud.web.service.impl" />
 
 </beans>
