@@ -8,6 +8,7 @@ import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -31,7 +32,7 @@ public class ProductService {
      *
      * @param productCategory
      */
-    @Transactional
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void saveCategory(ProductCategory productCategory) {
         productCategoryMapper.insert(productCategory);
     }
@@ -51,7 +52,7 @@ public class ProductService {
      *
      * @param productBrand
      */
-    @Transactional
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void saveBrand(ProductBrand productBrand) {
         Date date = new Date();
         productBrand.setCreateDate(date);
