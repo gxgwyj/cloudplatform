@@ -182,6 +182,7 @@ public class ProductController {
         productCategory.setpCode("000");
 
         productService.txAdd(productCategory,productBrand);
+//        productService.saveBrand(productBrand);
 
         return new ModelAndView("redirect:/product/type/list");
     }

@@ -3,9 +3,11 @@ package com.xinguoren.coolpen.cloud.web.service;
 import com.xinguoren.coolpen.cloud.web.dao.product.ProductBrandMapper;
 import com.xinguoren.coolpen.cloud.web.dao.product.ProductCategoryMapper;
 import com.xinguoren.coolpen.cloud.web.dao.product.ProductMainMapper;
+import com.xinguoren.coolpen.cloud.web.dao.product.UserMapper;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductBrand;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
+import com.xinguoren.coolpen.cloud.web.model.product.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -25,6 +27,8 @@ public class ProductService {
     ProductBrandMapper productBrandMapper;
     @Autowired
     ProductMainMapper productMainMapper;
+    @Autowired
+    UserMapper userMapper;
 
 
     /**
@@ -32,9 +36,13 @@ public class ProductService {
      *
      * @param productCategory
      */
-    @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void saveCategory(ProductCategory productCategory) {
         productCategoryMapper.insert(productCategory);
+        User user = new User();
+        user.setName("张强");
+        user.setCode("001");
+        user.setTel("15135158097");
+        userMapper.insert(user);
     }
 
 
@@ -52,12 +60,19 @@ public class ProductService {
      *
      * @param productBrand
      */
-    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    @Transactional
     public void saveBrand(ProductBrand productBrand) {
+//        saveUser();
+        User user = new User();
+        user.setName("张丽");
+        user.setCode("002");
+        user.setTel("15135158098");
+        userMapper.insert(user);
         Date date = new Date();
         productBrand.setCreateDate(date);
         productBrand.setUpdateDate(date);
         productBrandMapper.insert(productBrand);
+
     }
 
 
