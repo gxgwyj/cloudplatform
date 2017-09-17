@@ -3,13 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.xinguoren.cloud</groupId>
   <artifactId>cloudplatform</artifactId>
-  <packaging>pom</packaging>
+  <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>cloudplatform Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <mysql.driver.version>5.1.35</mysql.driver.version>
     <druid.version>1.0.27</druid.version>
     <spring.version>4.3.5.RELEASE</spring.version>
@@ -138,40 +137,9 @@
       <artifactId>spring-rabbit</artifactId>
       <version>${spring.rabbit.version}</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
-    <dependency>
-      <groupId>org.mybatis.generator</groupId>
-      <artifactId>mybatis-generator-core</artifactId>
-      <version>${mybatis.generator.version}</version>
-    </dependency>
-
   </dependencies>
   <build>
     <finalName>cloudplatform</finalName>
-    <!--<plugins>-->
-      <!--&lt;!&ndash;将class文件打成jar&ndash;&gt;-->
-      <!--<plugin>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-jar-plugin</artifactId>-->
-        <!--<version>2.6</version>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<phase>package</phase>-->
-            <!--<goals>-->
-              <!--<goal>jar</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
-              <!--<classesDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</classesDirectory>-->
-              <!--<finalName>my_jar</finalName>-->
-              <!--<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/lib</outputDirectory>-->
-              <!--<includes>-->
-                <!--<include>com/xinguoren/coolpen/cloud/web/api</include>-->
-              <!--</includes>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
-      <!--</plugin>-->
-    <!--</plugins>-->
     <resources>
       <resource>
         <directory>src/main/java</directory>
@@ -179,6 +147,9 @@
           <include>**/*.xml</include>
           <!-- 此配置不可缺，否则mybatis的Mapper.xml将会丢失 -->
         </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
       </resource>
     </resources>
   </build>
