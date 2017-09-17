@@ -138,6 +138,33 @@
       <version>${spring.rabbit.version}</version>
     </dependency>
   </dependencies>
+  <!-- 构建项目配置文件 -->
+  <profiles>
+    <!-- 开发环境 -->
+    <profile>
+      <id>dev</id>
+      <properties>
+        <profiles.active>dev</profiles.active>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+    <!-- 测试环境 -->
+    <profile>
+      <id>test</id>
+      <properties>
+        <profiles.active>test</profiles.active>
+      </properties>
+    </profile>
+    <!-- 生产环境 -->
+    <profile>
+      <id>pro</id>
+      <properties>
+        <profiles.active>pro</profiles.active>
+      </properties>
+    </profile>
+  </profiles>
   <build>
     <finalName>cloudplatform</finalName>
     <resources>
@@ -145,11 +172,19 @@
         <directory>src/main/java</directory>
         <includes>
           <include>**/*.xml</include>
-          <!-- 此配置不可缺，否则mybatis的Mapper.xml将会丢失 -->
         </includes>
       </resource>
       <resource>
         <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>conf/dev/*</exclude>
+          <exclude>conf/pro/*</exclude>
+          <exclude>conf/test/*</exclude>
+        </excludes>
+      </resource>
+      <resource>
+          <directory>src/main/resources/conf/${profiles.active}</directory>
+          <targetPath>conf</targetPath>
       </resource>
     </resources>
   </build>
