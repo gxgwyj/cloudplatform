@@ -2,19 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-       <!--应用名称-->
-       <dubbo:application name="cloudplatform-service"  />
+       <!--&lt;!&ndash;应用名称&ndash;&gt;-->
+       <!--<dubbo:application name="cloudplatform-service"  />-->
 
-       <!--配置服务注册中心-->
-       <!--<dubbo:registry protocol="zookeeper" address="192.168.1.176:2181" />-->
-       <!--<dubbo:registry address="zookeeper://192.168.204.131:2181" />-->
-       <dubbo:registry  protocol="zookeeper"  address="192.168.204.132:2181,192.168.204.132:2182,192.168.204.132:2183"  />
+       <!--&lt;!&ndash;配置服务注册中心&ndash;&gt;-->
+       <!--&lt;!&ndash;<dubbo:registry protocol="zookeeper" address="192.168.1.176:2181" />&ndash;&gt;-->
+       <!--&lt;!&ndash;<dubbo:registry address="zookeeper://192.168.204.131:2181" />&ndash;&gt;-->
+       <!--<dubbo:registry  protocol="zookeeper"  address="192.168.204.132:2181,192.168.204.132:2182,192.168.204.132:2183"  />-->
 
-       <!-- 用dubbo协议在20880端口暴露服务 -->
-       <dubbo:protocol name="dubbo" port="20880" />
-       <!--<dubbo:protocol name="dubbo" port="20881" />-->
+       <!--&lt;!&ndash; 用dubbo协议在20880端口暴露服务 &ndash;&gt;-->
+       <!--<dubbo:protocol name="dubbo" port="20880" />-->
+       <!--&lt;!&ndash;<dubbo:protocol name="dubbo" port="20881" />&ndash;&gt;-->
 
-       <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
-       <dubbo:annotation package="com.xinguoren.coolpen.cloud.web.service.impl" />
+       <!--&lt;!&ndash; 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 &ndash;&gt;-->
+       <!--<dubbo:annotation package="com.xinguoren.coolpen.cloud.web.service.impl" />-->
 
 </beans>
