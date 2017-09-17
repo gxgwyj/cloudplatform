@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xinguoren.coolpen.cloud.web.dao.product.ProductCategoryMapper">
-    <resultMap id="BaseResultMap" type="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+<mapper namespace="com.xinguoren.coolpen.cloud.web.dao.ProductCategoryMapper">
+    <resultMap id="BaseResultMap" type="com.xinguoren.coolpen.cloud.web.model.ProductCategory">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="code" jdbcType="VARCHAR" property="code"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
@@ -20,13 +20,13 @@
         delete from product_category
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+    <insert id="insert" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductCategory">
         insert into product_category (code, name,
         p_code)
         values ( #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
         #{pCode,jdbcType=VARCHAR})
     </insert>
-    <insert id="insertSelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+    <insert id="insertSelective" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductCategory">
         insert into product_category
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -57,7 +57,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductCategory">
         update product_category
         <set>
             <if test="code != null">
@@ -72,7 +72,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+    <update id="updateByPrimaryKey" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductCategory">
         update product_category
         set code = #{code,jdbcType=VARCHAR},
         name = #{name,jdbcType=VARCHAR},

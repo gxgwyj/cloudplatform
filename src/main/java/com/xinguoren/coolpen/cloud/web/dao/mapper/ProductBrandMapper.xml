@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xinguoren.coolpen.cloud.web.dao.product.ProductBrandMapper">
-    <resultMap id="BaseResultMap" type="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+<mapper namespace="com.xinguoren.coolpen.cloud.web.dao.ProductBrandMapper">
+    <resultMap id="BaseResultMap" type="com.xinguoren.coolpen.cloud.web.model.ProductBrand">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="b_name" jdbcType="VARCHAR" property="bName"/>
         <result column="b_place" jdbcType="CHAR" property="bPlace"/>
@@ -22,7 +22,7 @@
         delete from product_brand
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+    <insert id="insert" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductBrand">
         insert into product_brand (b_name, b_place,
         b_code, create_date, update_date
         )
@@ -30,7 +30,7 @@
         #{bCode,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, #{updateDate,jdbcType=DATE}
         )
     </insert>
-    <insert id="insertSelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+    <insert id="insertSelective" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductBrand">
         insert into product_brand
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -73,7 +73,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductBrand">
         update product_brand
         <set>
             <if test="bName != null">
@@ -94,7 +94,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductBrand">
+    <update id="updateByPrimaryKey" parameterType="com.xinguoren.coolpen.cloud.web.model.ProductBrand">
         update product_brand
         set b_name = #{bName,jdbcType=VARCHAR},
         b_place = #{bPlace,jdbcType=CHAR},

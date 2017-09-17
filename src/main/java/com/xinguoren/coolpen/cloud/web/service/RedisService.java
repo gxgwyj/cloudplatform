@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * Created by Lenovo on 2017/3/7.
  */
 @Service
-public class TestService {
+public class RedisService {
     @Autowired
     RedisClient redisClient;
     @Autowired

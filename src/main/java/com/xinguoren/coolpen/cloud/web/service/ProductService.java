@@ -1,16 +1,15 @@
 package com.xinguoren.coolpen.cloud.web.service;
 
-import com.xinguoren.coolpen.cloud.web.dao.product.ProductBrandMapper;
-import com.xinguoren.coolpen.cloud.web.dao.product.ProductCategoryMapper;
-import com.xinguoren.coolpen.cloud.web.dao.product.ProductMainMapper;
-import com.xinguoren.coolpen.cloud.web.dao.product.UserMapper;
-import com.xinguoren.coolpen.cloud.web.model.product.ProductBrand;
-import com.xinguoren.coolpen.cloud.web.model.product.ProductCategory;
-import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
-import com.xinguoren.coolpen.cloud.web.model.product.User;
+import com.xinguoren.coolpen.cloud.web.dao.ProductBrandMapper;
+import com.xinguoren.coolpen.cloud.web.dao.ProductCategoryMapper;
+import com.xinguoren.coolpen.cloud.web.dao.ProductMainMapper;
+import com.xinguoren.coolpen.cloud.web.dao.UserMapper;
+import com.xinguoren.coolpen.cloud.web.model.ProductBrand;
+import com.xinguoren.coolpen.cloud.web.model.ProductCategory;
+import com.xinguoren.coolpen.cloud.web.model.ProductMain;
+import com.xinguoren.coolpen.cloud.web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;

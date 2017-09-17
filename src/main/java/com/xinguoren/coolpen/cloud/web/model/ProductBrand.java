@@ -1,4 +1,4 @@
-package com.xinguoren.coolpen.cloud.web.model.product;
+package com.xinguoren.coolpen.cloud.web.model;
 
 import java.util.Date;
 

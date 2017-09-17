@@ -1,6 +1,6 @@
-package com.xinguoren.coolpen.cloud.web.dao.product;
+package com.xinguoren.coolpen.cloud.web.dao;
 
-import com.xinguoren.coolpen.cloud.web.model.product.User;
+import com.xinguoren.coolpen.cloud.web.model.User;
 
 public interface UserMapper {
 

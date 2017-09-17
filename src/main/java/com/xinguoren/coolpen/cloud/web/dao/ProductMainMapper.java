@@ -1,7 +1,7 @@
-package com.xinguoren.coolpen.cloud.web.dao.product;
+package com.xinguoren.coolpen.cloud.web.dao;
 
 
-import com.xinguoren.coolpen.cloud.web.model.product.ProductMain;
+import com.xinguoren.coolpen.cloud.web.model.ProductMain;
 
 import java.util.List;
 

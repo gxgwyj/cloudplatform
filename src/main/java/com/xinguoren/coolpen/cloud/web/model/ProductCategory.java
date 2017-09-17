@@ -1,4 +1,4 @@
-package com.xinguoren.coolpen.cloud.web.model.product;
+package com.xinguoren.coolpen.cloud.web.model;
 
 public class ProductCategory {
     private Long id;
