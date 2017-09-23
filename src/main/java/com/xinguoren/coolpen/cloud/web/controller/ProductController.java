@@ -5,6 +5,7 @@ import com.xinguoren.coolpen.cloud.web.model.ProductBrand;
 import com.xinguoren.coolpen.cloud.web.model.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.ProductMain;
 import com.xinguoren.coolpen.cloud.web.service.ProductService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,6 +24,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/product")
 public class ProductController {
+    private static final  Logger  logger = Logger.getLogger(ProductController.class);
 
     public ProductController() {
         System.out.println("初始化");
@@ -38,6 +40,7 @@ public class ProductController {
      */
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public ModelAndView index() {
+        logger.info("主界面");
         return new ModelAndView("product/main");
     }
 

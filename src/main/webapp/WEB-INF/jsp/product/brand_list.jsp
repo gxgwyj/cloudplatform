@@ -7,7 +7,7 @@
 %>
 <html>
 <head>
-    <title>商品品牌列表</title>
+    <title>商品品牌列表1212</title>
     <link type="text/css" rel="stylesheet" href="<%=basePath%>css/main.css"/>
 </head>
 <style type="text/css"></style>
