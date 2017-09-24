@@ -40,6 +40,7 @@ public class ProductController {
      */
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public ModelAndView index() {
+        logger.warn("debug msg");
         logger.info("主界面");
         return new ModelAndView("product/main");
     }
