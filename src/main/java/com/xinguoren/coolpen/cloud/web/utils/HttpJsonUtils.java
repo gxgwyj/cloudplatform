@@ -1,4 +1,4 @@
-package com.xinguoren.coolpen.cloud.web.common.utils;
+package com.xinguoren.coolpen.cloud.web.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
