@@ -11,7 +11,7 @@
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!--数据库连接参数配置-->
-	<context:property-placeholder location="classpath:conf/jdbc.properties"/>
+	<context:property-placeholder location="classpath:conf/jdbc.properties" ignore-unresolvable="true" />
 
 
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">

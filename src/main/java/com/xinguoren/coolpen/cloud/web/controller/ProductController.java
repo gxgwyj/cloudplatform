@@ -27,7 +27,7 @@ public class ProductController {
     private static final  Logger  logger = Logger.getLogger(ProductController.class);
 
     public ProductController() {
-        System.out.println("初始化");
+        logger.info("初始化");
     }
 
     @Autowired
