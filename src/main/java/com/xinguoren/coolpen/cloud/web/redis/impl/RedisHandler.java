@@ -25,7 +25,6 @@ public class RedisHandler {
      * @return
      */
     public boolean canAccess(String key,int exceedTime,int losetime){
-        System.out.println("redis incr");
         try{
             Jedis  jedis = jedisPool.getResource();
             long count = jedis.incrBy(key,1);

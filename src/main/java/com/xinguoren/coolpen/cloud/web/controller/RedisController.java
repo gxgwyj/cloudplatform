@@ -16,7 +16,7 @@ public class RedisController {
     RedisService redisService;
 
     /**
-     * 测试主界面
+     * redis主界面
      * @return
      */
     @RequestMapping(value = "/index")
