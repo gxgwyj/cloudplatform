@@ -19,21 +19,21 @@
     function getLock(){
         $.ajax({
             type: 'POST',
-            url: "/test/redis/lock",
+            url: "/redis/lock",
             datatype:"json",
             success: function(msg){
                 alert(msg);
-            },
+            }
         });
     }
     function getIncr(){
         $.ajax({
             type: 'POST',
-            url: "/test/redis/incr",
+            url: "/redis/incr",
             datatype:"json",
             success: function(msg){
                 alert(msg);
-            },
+            }
         });
     }
 </script>

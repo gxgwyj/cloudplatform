@@ -5,9 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+/**
+ * redisController
+ */
 @Controller
-@RequestMapping(value = "/my")
-public class MyController {
+@RequestMapping(value = "/redis")
+public class RedisController {
     @Autowired
     RedisService redisService;
 
@@ -15,26 +19,26 @@ public class MyController {
      * 测试主界面
      * @return
      */
-    @RequestMapping(value = "/all")
+    @RequestMapping(value = "/index")
     public String all() {
-        return "test";
+        return "redis";
     }
 
     /**
-     * 测试redis分布式锁
+     * redis分布式锁
      * @return
      */
-    @RequestMapping(value = "/redis/lock")
+    @RequestMapping(value = "/lock")
     @ResponseBody
     public Long lock() {
         return redisService.getLock();
     }
 
     /**
-     * 测试redis incr命令
+     * redis incr命令
      * @return
      */
-    @RequestMapping(value = "/redis/incr")
+    @RequestMapping(value = "/incr")
     @ResponseBody
     public String incr() {
         return  redisService.getCanAccess()?"访问成功":"5秒钟只能访问3次";
