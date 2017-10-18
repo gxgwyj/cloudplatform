@@ -1,12 +1,10 @@
 package com.xinguoren.coolpen.cloud.web.redis.impl;
 
-import com.xinguoren.coolpen.cloud.web.redis.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-import java.util.concurrent.TimeUnit;
 
 /**
  * redis 防刷工具,指定的时间内，可以操作的次数

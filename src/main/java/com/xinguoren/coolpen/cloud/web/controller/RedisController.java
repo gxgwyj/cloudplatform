@@ -20,7 +20,8 @@ public class RedisController {
      * @return
      */
     @RequestMapping(value = "/index")
-    public String all() {
+    public String index() {
+        redisService.setStr();
         return "redis";
     }
 

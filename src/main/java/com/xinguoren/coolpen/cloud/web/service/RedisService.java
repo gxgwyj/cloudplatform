@@ -2,6 +2,7 @@ package com.xinguoren.coolpen.cloud.web.service;
 
 import com.xinguoren.coolpen.cloud.web.redis.RedisClient;
 import com.xinguoren.coolpen.cloud.web.redis.impl.RedisHandler;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RedisService {
+    private final static Logger logger = Logger.getLogger(RedisService.class);
     @Autowired
     RedisClient redisClient;
     @Autowired
@@ -23,5 +25,10 @@ public class RedisService {
     }
     public boolean getCanAccess(){
         return redisHandler.canAccess("acc",3,5);
+    }
+
+    public void setStr(){
+        logger.info("redis set");
+        redisClient.strSet("redisTest","redisTest");
     }
 }
