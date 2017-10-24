@@ -42,5 +42,12 @@
        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/"  p:suffix=".jsp"/>
        <!-- 文件上传支持 -->
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <!-- 多个拦截器，顺序执行 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.xinguoren.coolpen.cloud.web.base.security.Interceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

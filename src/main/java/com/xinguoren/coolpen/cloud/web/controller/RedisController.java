@@ -1,10 +1,13 @@
 package com.xinguoren.coolpen.cloud.web.controller;
 
 import com.xinguoren.coolpen.cloud.web.service.RedisService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * redisController
@@ -12,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "/redis")
 public class RedisController {
+
+    private static final Logger logger = Logger.getLogger(RedisController.class);
+
     @Autowired
     RedisService redisService;
 
@@ -20,7 +26,8 @@ public class RedisController {
      * @return
      */
     @RequestMapping(value = "/index")
-    public String index() {
+    public String index(HttpServletRequest request) {
+        logger.info(request.getSession().getId());
         redisService.setStr();
         return "redis";
     }
