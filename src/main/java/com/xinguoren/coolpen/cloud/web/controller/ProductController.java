@@ -1,16 +1,16 @@
 package com.xinguoren.coolpen.cloud.web.controller;
 
 
+import com.alibaba.dubbo.common.json.JSON;
 import com.xinguoren.coolpen.cloud.web.model.ProductBrand;
 import com.xinguoren.coolpen.cloud.web.model.ProductCategory;
 import com.xinguoren.coolpen.cloud.web.model.ProductMain;
 import com.xinguoren.coolpen.cloud.web.service.ProductService;
+import com.xinguoren.coolpen.cloud.web.vo.PersonVo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -189,6 +189,28 @@ public class ProductController {
 //        productService.saveBrand(productBrand);
 
         return new ModelAndView("redirect:/product/type/list");
+    }
+
+    @RequestMapping(value = "personVo", method = RequestMethod.GET)
+    @ResponseBody
+    public PersonVo personVo() {
+       PersonVo personVo = new PersonVo();
+        personVo.setName("张三");
+        personVo.setSex("男");
+        personVo.setMobile("15135158097");
+
+        return personVo;
+    }
+
+    @RequestMapping(value = "personRequest", method = RequestMethod.POST)
+    @ResponseBody
+    public String personRequest(@RequestBody PersonVo personVo) {
+        try {
+            System.out.println(JSON.json(personVo));
+        }catch (Exception e){
+            logger.info("异常",e);
+        }
+        return "success";
     }
 
 }
