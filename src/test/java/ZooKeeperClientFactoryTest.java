@@ -3,10 +3,10 @@ import org.apache.zookeeper.ZooKeeper;
 /**
  * Created by Lenovo on 2017/7/23.
  */
-public class ZooKeeperClientFactory {
+public class ZooKeeperClientFactoryTest {
     private static String HOST = "192.168.204.134:2181";
 
-    private ZooKeeperClientFactory(){}
+    private ZooKeeperClientFactoryTest(){}
 
     private static class ZkClient{
         public static ZooKeeper  zooKeeper = createZooKeeper();
