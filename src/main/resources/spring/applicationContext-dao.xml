@@ -38,7 +38,7 @@
 		<!--加载所有的mapper文件 -->
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:com/xinguoren/coolpen/cloud/web/dao/**/*.xml</value>
+				<value>classpath:com/xyz/cloudplatform/dao/**/*.xml</value>
 			</list>
 		</property>
 	</bean>

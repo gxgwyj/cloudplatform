@@ -25,7 +25,7 @@
         <!-- 多个拦截器，顺序执行 -->
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.xinguoren.coolpen.cloud.web.base.security.Interceptor"></bean>
+            <bean class="com.xyz.cloudplatform.base.security.Interceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>
