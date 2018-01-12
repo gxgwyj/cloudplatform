@@ -7,7 +7,8 @@ import com.xyz.cloudplatform.model.ProductCategory;
 import com.xyz.cloudplatform.model.ProductMain;
 import com.xyz.cloudplatform.service.ProductService;
 import com.xyz.cloudplatform.vo.PersonVo;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/product")
 public class ProductController {
-    private static final  Logger  logger = Logger.getLogger(ProductController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     public ProductController() {
         logger.info("初始化");
