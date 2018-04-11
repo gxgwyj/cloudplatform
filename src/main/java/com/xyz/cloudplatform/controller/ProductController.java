@@ -27,10 +27,6 @@ import java.util.Map;
 public class ProductController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-    public ProductController() {
-        logger.info("初始化");
-    }
-
     @Autowired
     ProductService productService;
 

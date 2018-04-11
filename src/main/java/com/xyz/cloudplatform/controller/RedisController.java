@@ -29,7 +29,7 @@ public class RedisController {
     @RequestMapping(value = "/index")
     public String index(HttpServletRequest request) {
         logger.info(request.getSession().getId());
-        redisService.setStr();
+//        redisService.setStr();
         return "redis";
     }
 
