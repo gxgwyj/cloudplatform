@@ -76,7 +76,8 @@ public class RedisClientSingle implements RedisClient {
     @Override
     public Long setNx(String key, String value) {
         Jedis jedis = jedisPool.getResource();
+        Long result = jedis.setnx(key, value);
         jedis.close();
-        return jedis.setnx(key,value);
+        return result;
     }
 }
