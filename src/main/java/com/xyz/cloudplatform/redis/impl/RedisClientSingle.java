@@ -11,105 +11,72 @@ import redis.clients.jedis.JedisPool;
  */
 @Component
 public class RedisClientSingle implements RedisClient {
+
     @Autowired
     JedisPool  jedisPool;
 
 
-    public String strGet(String key) {
-        try {
-            Jedis  jedis = jedisPool.getResource();
-            String str = jedis.get(key);
-            jedis.close();
-            return str;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
+    @Override
+    public String get(String key) {
+        Jedis  jedis = jedisPool.getResource();
+        String str = jedis.get(key);
+        jedis.close();
+        return str;
     }
 
-    public String strSet(String key, String value) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            String str =  jedis.set(key, value);
-            jedis.close();
-            return str;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
+    @Override
+    public String set(String key, String value) {
+        Jedis jedis = jedisPool.getResource();
+        String str =  jedis.set(key, value);
+        jedis.close();
+        return str;
     }
 
-    public String hashGet(String hkey, String key) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            String str = jedis.hget(hkey, key);
-            jedis.close();
-            return str;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
+    @Override
+    public String hGet(String hkey, String key) {
+        Jedis jedis = jedisPool.getResource();
+        String str = jedis.hget(hkey, key);
+        jedis.close();
+        return str;
     }
 
-    public void hashSet(String hkey, String key, String value) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            jedis.hset(hkey, key, value);
-            jedis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    public Long hSet(String hkey, String key, String value) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.hset(hkey, key, value);
+        jedis.close();
+        return result;
     }
 
-    public void del(String key) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            jedis.del(key);
-            jedis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    public Long del(String key) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.del(key);
+        jedis.close();
+        return result;
     }
 
-    public void hashDel(String hkey, String key) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            jedis.hdel(hkey, key);
-            jedis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    public Long hDel(String hkey, String key) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.hdel(hkey, key);
+        jedis.close();
+        return result;
+
     }
 
-    public void expire(String key, int second) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            jedis.expire(key, second);
-            jedis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    public Long expire(String key, int second) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.expire(key, second);
+        jedis.close();
+        return result;
     }
 
-    public void expire(String key,String value,  int second) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            this.strSet(key, value);
-            jedis.expire(key, second);
-            jedis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Long setnx(String key, String value) {
-        try {
-            Jedis jedis = jedisPool.getResource();
-            jedis.close();
-            return jedis.setnx(key,value);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return -1L;
+    @Override
+    public Long setNx(String key, String value) {
+        Jedis jedis = jedisPool.getResource();
+        jedis.close();
+        return jedis.setnx(key,value);
     }
 }

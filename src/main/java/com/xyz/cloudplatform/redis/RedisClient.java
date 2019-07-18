@@ -10,7 +10,7 @@ public interface RedisClient {
      * @param key
      * @return
      */
-    String strGet(String key);
+    String get(String key);
 
     /**
      * 存储值
@@ -18,7 +18,7 @@ public interface RedisClient {
      * @param value
      * @return
      */
-    String strSet(String key, String value);
+    String set(String key, String value);
 
     /**
      *获取hash
@@ -26,7 +26,7 @@ public interface RedisClient {
      * @param key
      * @return
      */
-    String hashGet(String hkey, String key);
+    String hGet(String hkey, String key);
 
     /**
      * 存储hash
@@ -35,14 +35,14 @@ public interface RedisClient {
      * @param value
      * @return
      */
-    void hashSet(String hkey, String key, String value);
+    Long hSet(String hkey, String key, String value);
 
     /**
      * 删除
      * @param key
      * @return
      */
-    void del(String key);
+    Long del(String key);
 
     /**
      * hash 删除
@@ -50,26 +50,17 @@ public interface RedisClient {
      * @param key
      * @return
      */
-    void hashDel(String hkey, String key);
+    Long hDel(String hkey, String key);
 
     /**
      * 设置过期时间
      * @param key
-     * @param second
+     * @param seconds
      * @return
      */
-    void expire(String key, int second);
+    Long expire(String key, int seconds);
 
-
-    /**
-     *
-     * @param key
-     * @param value
-     * @param second
-     */
-    void expire(String key, String value, int second);
-
-    Long setnx(String key,String value);
+    Long setNx(String key,String value);
 
 
 }

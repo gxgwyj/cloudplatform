@@ -31,7 +31,7 @@
 		<property name="blockWhenExhausted" value="false" />
 	</bean>
 	<!-- jedis客户端单机版 -->
-	<bean id="redisClient" class="redis.clients.jedis.JedisPool">
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
 		<constructor-arg name="host" value="${redis.host}"></constructor-arg>
 		<constructor-arg name="port" value="${redis.port}"></constructor-arg>
 		<!--<constructor-arg name="password" value="cool_redis"></constructor-arg>-->
