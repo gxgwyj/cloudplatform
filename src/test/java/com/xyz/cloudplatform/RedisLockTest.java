@@ -1,7 +1,8 @@
 package com.xyz.cloudplatform;
 
-import com.xyz.cloudplatform.redis.RedisClient;
-import com.xyz.cloudplatform.redis.RedisLock;
+import com.xyz.cloudplatform.middleware.DistributedLock;
+import com.xyz.cloudplatform.middleware.RedisClient;
+import com.xyz.cloudplatform.middleware.impl.RedisLock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -27,7 +28,7 @@ public class RedisLockTest {
     @Test
     public void testRedisLock() {
 
-        RedisLock lock = new RedisLock("key1", 60 * 1000L, jedisPool);
+        DistributedLock lock = new RedisLock("key1", 60 * 1000L, jedisPool);
         boolean lockFlag = lock.getLock();
         logger.info("加锁结果：" + lockFlag);
         boolean releaseLockFlag = lock.releaseLock();

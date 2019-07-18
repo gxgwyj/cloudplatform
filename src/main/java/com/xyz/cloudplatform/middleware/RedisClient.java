@@ -1,4 +1,4 @@
-package com.xyz.cloudplatform.redis;
+package com.xyz.cloudplatform.middleware;
 
 /**
  * Created by Administrator on 2017/1/10.

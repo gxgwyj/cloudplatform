@@ -1,6 +1,6 @@
-package com.xyz.cloudplatform.redis.impl;
+package com.xyz.cloudplatform.middleware.impl;
 
-import com.xyz.cloudplatform.redis.RedisClient;
+import com.xyz.cloudplatform.middleware.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;

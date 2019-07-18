@@ -1,4 +1,4 @@
-package com.xyz.cloudplatform.redis.impl;
+package com.xyz.cloudplatform.middleware.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

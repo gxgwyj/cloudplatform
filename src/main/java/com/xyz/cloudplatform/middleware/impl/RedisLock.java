@@ -1,5 +1,6 @@
-package com.xyz.cloudplatform.redis;
+package com.xyz.cloudplatform.middleware.impl;
 
+import com.xyz.cloudplatform.middleware.DistributedLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
@@ -8,7 +9,7 @@ import redis.clients.jedis.JedisPool;
 import java.util.Collections;
 import java.util.UUID;
 
-public class RedisLock {
+public class RedisLock implements DistributedLock{
 
     private static final Logger logger = LoggerFactory.getLogger(RedisLock.class);
 
@@ -21,6 +22,7 @@ public class RedisLock {
     private JedisPool jedisPool;
     private Long milliseconds;
 
+
     public RedisLock(String lockKey, Long milliseconds, JedisPool jedisPool) {
         this.lockKey = lockKey;
         this.jedisPool = jedisPool;
@@ -32,6 +34,7 @@ public class RedisLock {
      * 加锁
      * @return
      */
+    @Override
     public boolean getLock() {
         lockValue = UUID.randomUUID().toString();
         Jedis jedis = jedisPool.getResource();
@@ -43,6 +46,7 @@ public class RedisLock {
     /**
      * 解锁
      */
+    @Override
     public boolean releaseLock() {
         // 使用lua脚本进行分布式锁的解锁，保证操作原子性。
         String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";

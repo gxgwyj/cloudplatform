@@ -38,6 +38,6 @@
 		<constructor-arg name="timeout" value="3000"></constructor-arg>
 		<constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
 	</bean>
-	<context:component-scan base-package="com.xyz.cloudplatform.redis"/>
+	<context:component-scan base-package="com.xyz.cloudplatform.middleware"/>
 
 </beans>
