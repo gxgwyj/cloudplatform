@@ -51,6 +51,7 @@ public class ProductService {
      * @return
      */
     public List<ProductCategory> findAllCategory() {
+        productCategoryMapper.selectAll();
         return productCategoryMapper.selectAll();
     }
 
