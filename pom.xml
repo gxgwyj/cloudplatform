@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <mysql.driver.version>5.1.35</mysql.driver.version>
+    <mysql.driver.version>8.0.28</mysql.driver.version>
     <druid.version>1.0.27</druid.version>
     <spring.version>4.3.5.RELEASE</spring.version>
     <zookeeper.version>3.5.2-alpha</zookeeper.version>
